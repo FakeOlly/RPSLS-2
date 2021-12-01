@@ -72,6 +72,10 @@ void titleMenu() {
 	case 3:
 		cout << "Enter Number of Rounds: ";
 		cin >> userBestOf;
+		if (userBestOf < 2)
+		{
+			userBestOf = 2;
+		}
 
 		bestOfGame(userBestOf);
 		break;
@@ -88,15 +92,16 @@ void titleMenu() {
 }
 void bestOfGame(int numRound) {
 
-	if (endlessMode == false)
-	{
-		if (curRound >= numRound)
-		{
-			playerExit = true;
+	system("CLS");
+	//if (endlessMode == false)
+	//{
+	//	if (curRound >= numRound)
+	//	{
+	//		playerExit = true;
 
 
-		}
-	}
+	//	}
+	//}
 	while (curRound <= numRound && playerExit == false || endlessMode == true && playerExit == false)
 	{
 		cout << "Player Score: " << playerScore << " || " << "Computer Score: " << computerScore << endl;
@@ -131,10 +136,14 @@ void bestOfGame(int numRound) {
 	if (playerScore > computerScore && playerExit == false)
 	{
 		cout << "!!!!The Player Wins!!!!" << endl;
+		titleCard();
+		titleMenu();
 	}
 	else if (computerScore > playerScore && playerExit == false)
 	{
 		cout << "!!!!The Computer Wins!!!!" << endl;
+		titleCard();
+		titleMenu();
 	}
 	else 
 	{
